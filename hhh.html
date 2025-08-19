@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفير السعادة للعطلات - دليل السياحة الشامل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .brochure {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Cover Section */
+        .cover {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .cover-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .cover-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+        
+        .cover-owner {
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        /* Sections Common Styles */
+        .section {
+            padding: 80px 40px;
+        }
+        
+        .section-dark {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .section-light {
+            background: white;
+        }
+        
+        .section-gray {
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-light .section-title {
+            color: var(--primary);
+        }
+        
+        .section-dark .section-title {
+            color: white;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Destinations Section */
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .destination-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .destination-info {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-item i {
+            color: var(--accent);
+            margin-left: 8px;
+        }
+        
+        /* Programs Section */
+        .program-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-card h3 i {
+            margin-left: 15px;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .program-card li {
+            margin-bottom: 12px;
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .program-card li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .program-price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .program-cta {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .program-cta:hover {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Testimonials Section */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(26, 42, 108, 0.1);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .submit-btn {
+            padding: 15px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-about {
+            margin-bottom: 20px;
+        }
+        
+        .footer-heading {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .cover-logo {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 30px;
+            }
+            
+            .cover-logo {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cover-logo {
+                font-size: 2.8rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section {
+                padding: 50px 20px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .program-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .cover-logo {
+                font-size: 2.2rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cover-owner {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <!-- Cover Section -->
+        <section class="cover">
+            <div class="cover-content">
+                <h1 class="cover-logo">سفير السعادة للعطلات</h1>
+                <p class="cover-subtitle">اكتشف العالم برفاهية واستمتع بتجارب سياحية لا تُنسى</p>
+                <div class="cover-owner">حازم - مسوق البرنامج السياحي</div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section section-light">
+            <h2 class="section-title">من نحن</h2>
+            <p class="section-subtitle">شركة "سفير السعادة للعطلات" توفر تجارب سفر فاخرة ومخصصة تلبي جميع تطلعاتكم</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>رحلات استثنائية تخلد في الذاكرة</h3>
+                    <p>نحن في "سفير السعادة للعطلات" نؤمن بأن كل رحلة هي قصة تروى وذكرى تخلد. منذ تأسيسنا في عام 2010، ونحن نقدم أفضل الخدمات السياحية للمسافرين الإماراتيين الذين يبحثون عن تجارب فريدة حول العالم.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>وجهات حول العالم</h4>
+                                <p>أكثر من 50 وجهة سياحية في 30 دولة</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>آلاف العملاء السعداء</h4>
+                                <p>أكثر من 10,000 عميل راضٍ عن خدماتنا</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>جائزة التميز السياحي</h4>
+                                <p>الحائزون على جائزة التميز في الخدمة لعام 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="فريق سفير السعادة للعطلات">
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section class="section section-gray">
+            <h2 class="section-title">الوجهات السياحية</h2>
+            <p class="section-subtitle">استمتع بأجمل الوجهات العالمية مع برامج مصممة خصيصًا للسياح الإماراتيين</p>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="جزر المالديف">
+                    </div>
+                    <div class="card-content">
+                        <h3>جزر المالديف</h3>
+                        <p>استمتع بشواطئها البكر ومنتجعاتها الفاخرة مع أفضل عروض الغوص والعلاجات Spa الفاخرة في بيئة استوائية خلابة.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>8 أيام / 7 ليالي</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 5,500 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1596445836561-991bcd39abf3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سويسرا">
+                    </div>
+                    <div class="card-content">
+                        <h3>سويسرا</h3>
+                        <p>تجربة فريدة بين جبال الألب الساحرة وقرىها الخلابة. استمتع بالتزلج والمناظر الطبيعية الخلابة وأجمل البحيرات.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>10 أيام / 9 ليالي</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 7,200 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="اليابان">
+                    </div>
+                    <div class="card-content">
+                        <h3>اليابان</h3>
+                        <p>مزيج رائع بين العراقة والحداثة. استكشف ثقافة الساموراي وتناول أطباق السوشي الأصيلة وشاهد أزهار الكرز.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>12 أيام / 11 ليلة</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 8,900 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="بالى">
+                    </div>
+                    <div class="card-content">
+                        <h3>بالى، إندونيسيا</h3>
+                        <p>جزيرة الآلهة حيث الجمال الطبيعي والثقافة الغنية. استمتع بالشواطئ الذهبية والمعابد التاريخية والمنتجقات الصحية.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>9 أيام / 8 ليالي</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 4,800 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1594741158701-e5ab913e178b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="تركيا">
+                    </div>
+                    <div class="card-content">
+                        <h3>تركيا</h3>
+                        <p>جسر بين القارتين حيث التاريخ العريق والطبيعة الساحرة. استكشف الأسواق القديمة والمساجد التاريخية والمنتجعات.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>8 أيام / 7 ليالي</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 3,900 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1506970840772-503770eb8c51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="اليونان">
+                    </div>
+                    <div class="card-content">
+                        <h3>اليونان</h3>
+                        <p>أرض الأساطير والجزر الزرقاء. استمتع بالشواطئ الجميلة والمأكولات اللذيذة والمواقع الأثرية التاريخية.</p>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>10 أيام / 9 ليالي</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>ابتداءً من 6,500 درهم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="section section-light">
+            <h2 class="section-title">برامجنا السياحية</h2>
+            <p class="section-subtitle">اختر من بين مجموعة برامجنا المصممة خصيصًا لتلبية جميع احتياجاتكم وأذواقكم</p>
+            
+            <div class="program-tabs">
+                <button class="tab-btn active" data-tab="premium">الباقات الفاخرة</button>
+                <button class="tab-btn" data-tab="honeymoon">برامج شهر العسل</button>
+                <button class="tab-btn" data-tab="family">عطلات عائلية</button>
+                <button class="tab-btn" data-tab="adventure">رحلات المغامرات</button>
+            </div>
+            
+            <div class="tab-content active" id="premium">
+                <div class="program-cards">
+                    <div class="program-card">
+                        <h3><i class="fas fa-crown"></i> الباقة الماسية</h3>
+                        <ul>
+                            <li>إقامة في أفخم فنادق 5 نجوم</li>
+                            <li>تذاكر طيران درجة رجال الأعمال</li>
+                            <li>جولات سياحية خاصة مع مرشد</li>
+                            <li>تأمين صحي شامل بمستوى ممتاز</li>
+                            <li>سيارة خاصة مع سائق طوال الرحلة</li>
+                            <li>عشاء في أفخم المطاعم</li>
+                            <li>تذاكر دخول لجميع المعالم</li>
+                        </ul>
+                        <div class="program-price">ابتداءً من 12,000 درهم</div>
+                        <button class="program-cta">احجز الآن</button>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3><i class="fas fa-gem"></i> الباقة الذهبية</h3>
+                        <ul>
+                            <li>إقامة في فنادق 5 نجوم</li>
+                            <li>تذاكر طيران درجة سياحية متميزة</li>
+                            <li>جولات سياحية جماعية</li>
+                            <li>تأمين صحي شامل</li>
+                            <li>مواصلات من وإلى المطار</li>
+                            <li>بعض الوجبات متضمنة</li>
+                            <li>تذاكر دخول لأهم المعالم</li>
+                        </ul>
+                        <div class="program-price">ابتداءً من 7,500 درهم</div>
+                        <button class="program-cta">احجز الآن</button>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3><i class="fas fa-star"></i> الباقة الفضية</h3>
+                        <ul>
+                            <li>إقامة في فنادق 4 نجوم</li>
+                            <li>تذاكر طيران درجة سياحية</li>
+                            <li>جولات سياحية جماعية</li>
+                            <li>تأمين صحي أساسي</li>
+                            <li>مواصلات من وإلى المطار</li>
+                            <li>افطار يومي متضمن</li>
+                            <li>تذاكر دخول لبعض المعالم</li>
+                        </ul>
+                        <div class="program-price">ابتداءً من 5,000 درهم</div>
+                        <button class="program-cta">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="honeymoon">
+                <!-- Honeymoon programs content would go here -->
+            </div>
+            
+            <div class="tab-content" id="family">
+                <!-- Family programs content would go here -->
+            </div>
+            
+            <div class="tab-content" id="adventure">
+                <!-- Adventure programs content would go here -->
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section section-dark">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <p class="section-subtitle">اكتشف ما يقوله عملاؤنا عن تجاربهم مع سفير السعادة للعطلات</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"أفضل تجربة سفر مرت عليّ! كل التفاصيل كانت منظمة بدقة والخدمة كانت ممتازة. شكرًا لفريق سفير السعادة على جعل عطلتي في المالديف لا تُنسى."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="أحمد الشمري">
+                        </div>
+                        <div class="author-info">
+                            <h4>أحمد الشمري</h4>
+                            <p>رحلة إلى المالديف</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"رحلة شهر العسل كانت سحرية بكل معنى الكلمة. كل شيء كان متقنًا من الإقامة الفاخرة إلى الجولات الرومانسية. شكرًا لكم على هذه الذكريات الجميلة."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="فاطمة العبدالله">
+                        </div>
+                        <div class="author-info">
+                            <h4>فاطمة العبدالله</h4>
+                            <p>رحلة شهر عسل إلى باريس</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"الرحلة العائلية إلى تركيا كانت رائعة. البرنامج كان متنوعًا ويناسب جميع الأعمار. الأطفال ما زالوا يتحدثون عن الرحلة حتى الآن. شكرًا لكم!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="خالد السعدي">
+                        </div>
+                        <div class="author-info">
+                            <h4>خالد السعدي</h4>
+                            <p>رحلة عائلية إلى تركيا</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section-light">
+            <h2 class="section-title">اتصل بنا</h2>
+            <p class="section-subtitle">نحن هنا لمساعدتك في التخطيط لرحلتك المثالية. تواصل معنا اليوم!</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>العنوان</h4>
+                            <p>دبي، الإمارات العربية المتحدة</p>
+                            <p>برج دبي، الطابق 12</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>هاتف</h4>
+                            <p>+971 5X XXX XXXX</p>
+                            <p>+971 4 XXX XXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>info@safiralsaada.ae</p>
+                            <p>bookings@safiralsaada.ae</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>ساعات العمل</h4>
+                            <p>السبت إلى الخميس: 8 صباحًا - 8 مساءً</p>
+                            <p>الجمعة: 10 صباحًا - 6 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الكامل">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="أدخل رقم هاتفك">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="destination">الوجهة المفضلة</label>
+                            <select id="destination" class="form-control">
+                                <option value="">اختر الوجهة</option>
+                                <option value="maldives">جزر المالديف</option>
+                                <option value="switzerland">سويسرا</option>
+                                <option value="japan">اليابان</option>
+                                <option value="bali">بالى</option>
+                                <option value="turkey">تركيا</option>
+                                <option value="greece">اليونان</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="أدخل رسالتك أو استفسارك"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">سفير السعادة للعطلات</div>
+                    <p class="footer-about-text">نحن شركة سياحية رائدة متخصصة في تقديم تجارب سفر فاخرة ومخصصة للعملاء الإماراتيين الذين يبحثون عن مغامرات لا تُنسى حول العالم.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">الوجهات</a></li>
+                        <li><a href="#">البرامج</a></li>
+                        <li><a href="#">عروض خاصة</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">الوجهات الشعبية</h3>
+                    <ul>
+                        <li><a href="#">جزر المالديف</a></li>
+                        <li><a href="#">سويسرا</a></li>
+                        <li><a href="#">اليابان</a></li>
+                        <li><a href="#">تركيا</a></li>
+                        <li><a href="#">اليونان</a></li>
+                        <li><a href="#">إندونيسيا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">برامجنا</h3>
+                    <ul>
+                        <li><a href="#">الباقات الفاخرة</a></li>
+                        <li><a href="#">برامج شهر العسل</a></li>
+                        <li><a href="#">عطلات عائلية</a></li>
+                        <li><a href="#">رحلات المغامرات</a></li>
+                        <li><a href="#">رحلات شهر العسل</a></li>
+                        <li><a href="#">رحلات الأعمال</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 سفير السعادة للعطلات. جميع الحقوق محفوظة. | تصميم وتطوير: حازم - مسوق البرنامج السياحي</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Smooth scrolling for cover arrow
+            document.querySelector('.scroll-indicator').addEventListener('click', function() {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
